@@ -1,0 +1,13 @@
+A simple PHP extension to dump static variables
+
+This extension provides a function returning an array
+containing all static variables and their values.
+
+Installation:
+   $ phpize && ./configure && make
+   See http://php.net/install.pecl for details
+
+Usage example:
+
+   $  php -n -dextension=modules/staticvardumper.so \
+          -r 'function foo() { static $a = 1; static $b;  } function bar() { static $a; } var_dump(dump_static_vars());'
