@@ -41,9 +41,9 @@ int dump_statics(zend_function *function, zval *return_value TSRMLS_DC)
 		zend_hash_internal_pointer_reset(function->op_array.static_variables);
 		while ((hashKeyType = zend_hash_get_current_key(function->op_array.static_variables, &hashKey, &hashIndex, 0)) != HASH_KEY_NON_EXISTANT) {
 			if (hashKeyType == HASH_KEY_IS_STRING) {
-				zval *value;
+				zval **value;
 				zend_hash_get_current_data(function->op_array.static_variables, (void **)&value);
-				add_assoc_zval(statics, hashKey, value);
+				add_assoc_zval(statics, hashKey, *value);
 			}
 			zend_hash_move_forward(function->op_array.static_variables);
 		}
