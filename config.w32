@@ -1,0 +1,13 @@
+// $Id$
+// vim:ft=javascript
+
+// If your extension references something external, use ARG_WITH
+// ARG_WITH("staticvardumper", "for staticvardumper support", "no");
+
+// Otherwise, use ARG_ENABLE
+// ARG_ENABLE("staticvardumper", "enable staticvardumper support", "no");
+
+if (PHP_STATICVARDUMPER != "no") {
+	EXTENSION("staticvardumper", "staticvardumper.c");
+}
+
