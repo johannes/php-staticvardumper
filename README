@@ -11,3 +11,21 @@ Usage example:
 
    $  php -n -dextension=modules/staticvardumper.so \
           -r 'function foo() { static $a = 1; static $b;  } function bar() { static $a; } var_dump(dump_static_vars());'
+
+   This prints
+
+   array(2) {
+     ["foo"]=>
+     array(2) {
+       ["a"]=>
+       int(1)
+       ["b"]=>
+       NULL
+     }
+     ["bar"]=>
+     array(1) {
+        ["a"]=>
+        NULL
+     }
+   }
+
